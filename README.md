@@ -1,13 +1,5 @@
 # CaptionIt
 
-A tiny site that writes captions for your photos.
+A tiny photo captioning site.
 
-## What it does
-
-- **AI captions:** upload a photo and CaptionIt writes a caption describing it.
-
-## Run the tests
-
-```
-npm test
-```
+Run the tests with `npm test`.
