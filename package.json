@@ -1,0 +1,9 @@
+{
+  "name": "talnex-fake-claim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A planted test app for TalNex: it claims an AI feature that does not work.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

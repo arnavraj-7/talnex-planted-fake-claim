@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Try CaptionIt</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>Try CaptionIt</h1>
+    <label for="photo">Choose a photo</label>
+    <input id="photo" type="file" accept="image/*">
+    <p id="chosen">No photo chosen yet</p>
+    <button id="write" type="button">Write my caption</button>
+    <div id="alert" class="alert" role="alert"></div>
+    <p id="caption"></p>
+    <p><a href="/">Back to the start page</a></p>
+  </main>
+  <script>
+    document.getElementById("photo").addEventListener("change", (event) => {
+      const file = event.target.files && event.target.files[0];
+      document.getElementById("chosen").textContent = file ? "Photo chosen: " + file.name : "No photo chosen yet";
+    });
+    document.getElementById("write").addEventListener("click", async () => {
+      const alertBox = document.getElementById("alert");
+      const caption = document.getElementById("caption");
+      alertBox.textContent = "";
+      caption.textContent = "";
+      try {
+        const reply = await fetch("/api/caption", { method: "POST" });
+        const data = await reply.json();
+        if (!reply.ok) {
+          alertBox.textContent = data.error || "Something went wrong.";
+          return;
+        }
+        caption.textContent = data.caption;
+      } catch (e) {
+        alertBox.textContent = "Something went wrong.";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+body { font-family: system-ui, sans-serif; margin: 0; background: #f7f7f2; color: #222; }
+main { max-width: 36rem; margin: 2rem auto; padding: 0 1rem; }
+button { margin-top: .75rem; padding: .5rem 1rem; cursor: pointer; }
+a { color: #0b57d0; }
+nav a { margin-right: 1rem; }
+img { max-width: 100%; margin-top: .75rem; }
+.alert { color: #b00020; min-height: 1.2em; }
